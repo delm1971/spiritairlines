@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Find Affordable Flight Alternatives | SpiritAirlinesFlights.com</title>
+  <meta name="description" content="Compare affordable flight options after Spirit Airlines. Search cheap fares, compare full trip costs, and find budget-friendly alternatives from trusted travel partners." />
+  <meta name="robots" content="index, follow" />
+  <style>
+    :root {
+      --bg: #fffaf0;
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --yellow: #ffe600;
+      --yellow-dark: #f4c400;
+      --black: #111827;
+      --green: #10b981;
+      --blue: #2563eb;
+      --card: #ffffff;
+      --border: #e5e7eb;
+      --shadow: 0 20px 50px rgba(17, 24, 39, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+      background: linear-gradient(180deg, #fff7c7 0%, #fffaf0 38%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .top-disclosure {
+      background: #111827;
+      color: #fff;
+      font-size: 13px;
+      text-align: center;
+      padding: 10px 16px;
+    }
+
+    .top-disclosure strong { color: var(--yellow); }
+
+    header {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 22px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      color: var(--black);
+      letter-spacing: -0.4px;
+    }
+
+    .logo-mark {
+      background: var(--yellow);
+      color: #000;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      box-shadow: 0 8px 20px rgba(0,0,0,.15);
+    }
+
+    .nav-cta {
+      background: var(--black);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px 20px 54px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 22px rgba(0,0,0,.06);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      color: #374151;
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 66px);
+      line-height: .98;
+      letter-spacing: -2.5px;
+      margin: 18px 0 18px;
+      color: var(--black);
+    }
+
+    .hero p.lead {
+      font-size: clamp(18px, 2vw, 23px);
+      color: #374151;
+      margin: 0 0 24px;
+      max-width: 670px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 26px 0 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 22px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+      transition: transform .15s ease, box-shadow .15s ease;
+      border: 2px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.14); }
+
+    .btn-primary { background: var(--yellow); color: #000; border-color: #000; }
+    .btn-dark { background: #111827; color: #fff; }
+    .btn-outline { background: #fff; color: #111827; border-color: #111827; }
+
+    .trust-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .trust-row span::before { content: "✓ "; color: var(--green); font-weight: 900; }
+
+    .search-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .search-card h2 {
+      margin: 0 0 6px;
+      font-size: 28px;
+      letter-spacing: -0.8px;
+    }
+
+    .search-card p { color: var(--muted); margin: 0 0 20px; }
+
+    .deal-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .deal {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      background: #fafafa;
+    }
+
+    .deal strong {
+      display: block;
+      font-size: 18px;
+      color: #111827;
+    }
+
+    .deal small { color: var(--muted); display: block; margin: 3px 0 12px; }
+
+    .deal a {
+      display: block;
+      text-align: center;
+      background: var(--blue);
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 14px;
+      border-radius: 12px;
+      font-weight: 900;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 54px 20px;
+    }
+
+    .section-title {
+      font-size: clamp(30px, 4vw, 46px);
+      letter-spacing: -1.4px;
+      line-height: 1.05;
+      margin: 0 0 14px;
+      color: var(--black);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 760px;
+      margin: 0 0 28px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(17,24,39,.06);
+    }
+
+    .card .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--yellow);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 { margin: 0 0 8px; font-size: 21px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .highlight {
+      background: #111827;
+      color: #fff;
+      border-radius: 30px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .highlight h2 { color: #fff; margin: 0 0 10px; font-size: clamp(28px, 3vw, 42px); line-height: 1.08; }
+    .highlight p { color: #d1d5db; margin: 0; }
+    .highlight .btn { background: var(--yellow); color: #000; border-color: var(--yellow); }
+
+    .tips {
+      display: grid;
+      gap: 12px;
+    }
+
+    .tip {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px 18px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .tip b { color: var(--black); }
+    .tip span:first-child { color: var(--green); font-weight: 900; }
+
+    .comparison {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+      box-shadow: 0 10px 30px rgba(17,24,39,.06);
+    }
+
+    .comparison th, .comparison td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .comparison th { background: #111827; color: #fff; }
+    .comparison tr:last-child td { border-bottom: 0; }
+
+    .final-cta {
+      background: linear-gradient(135deg, var(--yellow) 0%, #fff2a0 100%);
+      border: 2px solid #111827;
+      border-radius: 34px;
+      padding: 42px 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .final-cta h2 {
+      margin: 0 0 10px;
+      font-size: clamp(32px, 4vw, 54px);
+      letter-spacing: -1.6px;
+      line-height: 1.02;
+      color: #000;
+    }
+
+    .final-cta p { max-width: 760px; margin: 0 auto 24px; color: #374151; font-size: 18px; }
+
+    footer {
+      background: #111827;
+      color: #d1d5db;
+      padding: 32px 20px;
+      font-size: 13px;
+    }
+
+    footer .inner { max-width: 1180px; margin: 0 auto; }
+    footer a { color: #fff; }
+
+    .sticky-mobile {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 10px;
+      background: rgba(255,255,255,.94);
+      border-top: 1px solid var(--border);
+      z-index: 20;
+    }
+
+    .sticky-mobile a {
+      display: block;
+      background: var(--yellow);
+      color: #000;
+      border: 2px solid #000;
+      text-align: center;
+      padding: 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 900;
+    }
+
+    @media (max-width: 850px) {
+      header { padding: 18px 16px; }
+      .nav-cta { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 14px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .highlight { grid-template-columns: 1fr; padding: 26px; }
+      .comparison { font-size: 14px; }
+      .comparison th, .comparison td { padding: 12px; }
+      .sticky-mobile { display: block; }
+      body { padding-bottom: 78px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-disclosure">
+    <strong>Independent travel affiliate site.</strong> SpiritAirlinesFlights.com is not Spirit Airlines, is not owned by Spirit Airlines, and is not an airline booking engine. We may earn a commission when you book through partner links.
+  </div>
+
+  <header>
+    <div class="logo">
+      <div class="logo-mark">$</div>
+      <div>
+        SpiritAirlinesFlights.com<br />
+        <small style="font-weight:700;color:#6b7280;">Budget flight alternatives</small>
+      </div>
+    </div>
+    <a class="nav-cta" href="https://www.expedia.com/?siteid=1&langid=1033" rel="sponsored nofollow">Search Cheap Flights</a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="badge">✈️ Former Spirit traveler? Compare affordable alternatives.</div>
+        <h1>Still looking for cheap flights after Spirit?</h1>
+        <p class="lead">Compare budget-friendly flight options, flexible travel dates, package deals, and low-cost airline alternatives in one place before you book.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.expedia.com/?siteid=1&langid=1033" rel="sponsored nofollow">Compare Flights on Expedia</a>
+          <a class="btn btn-dark" href="https://trip.tpo.mx/v3tEp9oq" rel="sponsored nofollow">Check Trip.com Deals</a>
+          <a class="btn btn-outline" href="https://track.vcommission.com/click?campaign_id=12864&pub_id=116932" rel="sponsored nofollow">Find More Flight Offers</a>
+        </div>
+        <div class="trust-row">
+          <span>No sign-up required to compare</span>
+          <span>Check total price before booking</span>
+          <span>Great for last-minute alternatives</span>
+        </div>
+      </div>
+
+      <aside class="search-card" id="search">
+        <h2>Start with 3 fast searches</h2>
+        <p>Prices can change quickly. Compare multiple travel partners before choosing your route.</p>
+        <div class="deal-stack">
+          <div class="deal">
+            <strong>Expedia Flight Search</strong>
+            <small>Compare flights, hotels, packages, and travel bundles.</small>
+            <a href="https://www.expedia.com/?siteid=1&langid=1033" rel="sponsored nofollow">Search Expedia</a>
+          </div>
+          <div class="deal">
+            <strong>Trip.com Flight Deals</strong>
+            <small>Check domestic and international fares from multiple carriers.</small>
+            <a href="https://trip.tpo.mx/v3tEp9oq" rel="sponsored nofollow">Search Trip.com</a>
+          </div>
+          <div class="deal">
+            <strong>Budget Flight Offers</strong>
+            <small>Look for additional low-cost travel options and special fares.</small>
+            <a href="https://track.vcommission.com/click?campaign_id=12864&pub_id=116932" rel="sponsored nofollow">View Offers</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section>
+      <h2 class="section-title">How to find the lowest real price</h2>
+      <p class="section-subtitle">Cheap airfare is not only about the base ticket price. Always compare the full trip cost before booking.</p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon">🧳</div>
+          <h3>Compare bag fees</h3>
+          <p>A low base fare can become expensive once carry-on, checked bag, seat, and boarding fees are added.</p>
+        </div>
+        <div class="card">
+          <div class="icon">📅</div>
+          <h3>Try flexible dates</h3>
+          <p>Flying one day earlier or later can often reveal cheaper fares, especially around weekends and holidays.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛫</div>
+          <h3>Check nearby airports</h3>
+          <p>Former Spirit routes may have affordable options from nearby airports or alternative carriers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="highlight">
+        <div>
+          <h2>Do not book only by the headline fare.</h2>
+          <p>Before you purchase, compare refund rules, schedule changes, carry-on allowance, seat fees, airport location, and the total price for every traveler.</p>
+        </div>
+        <div style="text-align:center;">
+          <a class="btn" href="https://www.expedia.com/?siteid=1&langid=1033" rel="sponsored nofollow">Compare Total Trip Cost</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Best alternatives to check first</h2>
+      <p class="section-subtitle">Use this checklist when replacing a canceled, unavailable, or expensive flight.</p>
+      <div class="tips">
+        <div class="tip"><span>✓</span><div><b>Low-cost carriers:</b> Compare airlines such as Frontier, Breeze, Southwest, JetBlue, Allegiant, Avelo, and other carriers serving your route.</div></div>
+        <div class="tip"><span>✓</span><div><b>Legacy airlines:</b> Delta, American, United, and Alaska may be competitive once bags and seat fees are included.</div></div>
+        <div class="tip"><span>✓</span><div><b>Bundle savings:</b> If you need a hotel or rental car, package pricing may lower your overall trip cost.</div></div>
+        <div class="tip"><span>✓</span><div><b>Refund protection:</b> Review cancellation rules before booking, especially for last-minute replacement flights.</div></div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Quick comparison checklist</h2>
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th>What to compare</th>
+            <th>Why it matters</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Base fare</td>
+            <td>The advertised price may not include bags, seats, or extras.</td>
+            <td>Compare 2–3 booking sites.</td>
+          </tr>
+          <tr>
+            <td>Carry-on and checked bags</td>
+            <td>Bag fees can change which flight is truly cheapest.</td>
+            <td>Add baggage before comparing totals.</td>
+          </tr>
+          <tr>
+            <td>Departure airport</td>
+            <td>Nearby airports may have lower fares or better replacement routes.</td>
+            <td>Search surrounding airports.</td>
+          </tr>
+          <tr>
+            <td>Schedule and layovers</td>
+            <td>A cheaper fare may involve long layovers or risky connections.</td>
+            <td>Balance price with travel time.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <div class="final-cta">
+        <h2>Ready to find your next affordable flight?</h2>
+        <p>Search multiple travel partners, compare the real total price, and book the option that works best for your route and budget.</p>
+        <div class="cta-row" style="justify-content:center;">
+          <a class="btn btn-dark" href="https://www.expedia.com/?siteid=1&langid=1033" rel="sponsored nofollow">Search Expedia</a>
+          <a class="btn btn-outline" href="https://trip.tpo.mx/v3tEp9oq" rel="sponsored nofollow">Search Trip.com</a>
+          <a class="btn btn-primary" href="https://track.vcommission.com/click?campaign_id=12864&pub_id=116932" rel="sponsored nofollow">View Flight Offers</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-mobile">
+    <a href="https://www.expedia.com/?siteid=1&langid=1033" rel="sponsored nofollow">Compare Cheap Flights</a>
+  </div>
+
+  <footer>
+    <div class="inner">
+      <p><strong>Affiliate Disclosure:</strong> This website contains affiliate links. If you click a partner link and make a purchase, we may earn a commission at no additional cost to you.</p>
+      <p><strong>Independent Website Notice:</strong> SpiritAirlinesFlights.com is an independent travel comparison and affiliate website. It is not affiliated with, endorsed by, sponsored by, or officially connected with Spirit Airlines, Expedia, Trip.com, or any airline unless specifically stated. All trademarks belong to their respective owners.</p>
+      <p><strong>Travel Disclaimer:</strong> Fares, availability, baggage rules, cancellation rules, and partner offers can change at any time. Always review the final booking page before purchasing.</p>
+      <p>© 2026 SpiritAirlinesFlights.com. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
