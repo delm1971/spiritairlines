@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CheapTickets Travel Deals | Compare Affordable Flights, Hotels & Vacation Packages</title>
+  <meta name="description" content="Discover a smarter way to compare affordable flights, hotels, car rentals, cruises, and vacation packages with CheapTickets. Start planning your next trip today." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --text: #172033;
+      --muted: #5d6a7e;
+      --brand: #0b57d0;
+      --brand-dark: #073b8c;
+      --accent: #ffb000;
+      --success: #15803d;
+      --card: #ffffff;
+      --border: #dfe6f1;
+      --shadow: 0 18px 50px rgba(23, 32, 51, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 32px)); margin: 0 auto; }
+
+    .topbar {
+      background: #0f172a;
+      color: #fff;
+      font-size: 14px;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .topbar strong { color: var(--accent); }
+
+    header {
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 0;
+      gap: 18px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: -0.04em;
+    }
+    .logo-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--brand), #18a0fb);
+      box-shadow: 0 10px 25px rgba(11,87,208,.3);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 14px 22px;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 800;
+      border: 0;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(11,87,208,.24);
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); background: var(--brand-dark); box-shadow: 0 18px 40px rgba(11,87,208,.32); }
+    .btn.secondary { background: #fff; color: var(--brand); border: 1px solid var(--border); box-shadow: none; }
+    .btn.secondary:hover { background: #eef5ff; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(255,176,0,.28), transparent 28%),
+        linear-gradient(135deg, #eef5ff 0%, #ffffff 45%, #eaf7ff 100%);
+      padding: 66px 0 44px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 42px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #fff7df;
+      color: #7a4d00;
+      font-weight: 800;
+      font-size: 13px;
+      border: 1px solid #ffe4a3;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      line-height: .98;
+      letter-spacing: -0.07em;
+      margin: 0 0 20px;
+    }
+    .hero p {
+      font-size: 19px;
+      color: var(--muted);
+      margin: 0 0 24px;
+      max-width: 660px;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; margin: 28px 0; }
+    .trust-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 22px; }
+    .trust-pill {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 9px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      transform: rotate(1deg);
+    }
+    .deal-box {
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #07152f, #0b57d0);
+      color: #fff;
+      padding: 26px;
+      min-height: 420px;
+      position: relative;
+    }
+    .deal-box:after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.12);
+      right: -65px;
+      top: -45px;
+    }
+    .deal-label { color: var(--accent); font-weight: 900; text-transform: uppercase; font-size: 13px; letter-spacing: .08em; }
+    .deal-title { font-size: 38px; line-height: 1.05; font-weight: 900; letter-spacing: -0.05em; margin: 14px 0; }
+    .deal-list { margin: 24px 0 28px; padding: 0; list-style: none; display: grid; gap: 13px; }
+    .deal-list li { display: flex; gap: 10px; align-items: flex-start; color: #e9f2ff; font-weight: 600; }
+    .check { color: #7ff0a5; font-weight: 900; }
+    .search-card {
+      background: rgba(255,255,255,.13);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: 16px;
+      margin-top: 18px;
+    }
+    .fake-input {
+      background: #fff;
+      color: #64748b;
+      border-radius: 14px;
+      padding: 13px 14px;
+      margin: 9px 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    section { padding: 68px 0; }
+    .section-title { text-align: center; max-width: 780px; margin: 0 auto 38px; }
+    .section-title h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.05; letter-spacing: -0.05em; margin: 0 0 12px; }
+    .section-title p { color: var(--muted); font-size: 17px; margin: 0; }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(23,32,51,.06);
+    }
+    .icon {
+      width: 48px; height: 48px; border-radius: 15px;
+      display: grid; place-items: center;
+      background: #eef5ff;
+      color: var(--brand);
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 20px; letter-spacing: -0.02em; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .advertorial {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .article {
+      display: grid;
+      grid-template-columns: .76fr .24fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .article-main {
+      background: #fff;
+      border-radius: 26px;
+      border: 1px solid var(--border);
+      padding: clamp(24px, 5vw, 46px);
+      box-shadow: 0 12px 34px rgba(23,32,51,.06);
+    }
+    .article-label { color: var(--brand); font-weight: 900; text-transform: uppercase; letter-spacing: .09em; font-size: 13px; }
+    .article-main h2 { font-size: clamp(30px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.05em; margin: 10px 0 18px; }
+    .article-main p { color: #39465c; font-size: 17px; }
+    .highlight {
+      background: #fff8e8;
+      border: 1px solid #ffe0a3;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 26px 0;
+    }
+    .highlight strong { color: #7a4d00; }
+    .numbered { display: grid; gap: 18px; margin: 28px 0; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+    .num {
+      width: 44px; height: 44px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: var(--brand);
+      color: #fff;
+      font-weight: 900;
+    }
+    .step h3 { margin: 0 0 4px; font-size: 19px; }
+    .step p { margin: 0; color: var(--muted); }
+    .sidebar { position: sticky; top: 92px; }
+    .sidebar-box {
+      background: #0f172a;
+      color: #fff;
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+    .sidebar-box h3 { margin: 0 0 10px; font-size: 22px; letter-spacing: -0.03em; }
+    .sidebar-box p { color: #cbd5e1; margin: 0 0 18px; }
+
+    .destinations { background: linear-gradient(180deg, #f6f8fb 0%, #eef5ff 100%); }
+    .destination-card {
+      min-height: 250px;
+      border-radius: 24px;
+      padding: 22px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-shadow: 0 18px 42px rgba(23,32,51,.16);
+    }
+    .destination-card:before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(15,23,42,.12), rgba(15,23,42,.82));
+      z-index: 1;
+    }
+    .destination-card > * { position: relative; z-index: 2; }
+    .d1 { background: linear-gradient(135deg, #0ea5e9, #1e3a8a); }
+    .d2 { background: linear-gradient(135deg, #f97316, #7c2d12); }
+    .d3 { background: linear-gradient(135deg, #14b8a6, #064e3b); }
+    .destination-card h3 { margin: 0 0 6px; font-size: 25px; letter-spacing: -0.04em; }
+    .destination-card p { margin: 0 0 16px; color: #e2e8f0; }
+    .mini-link { font-weight: 900; color: var(--accent); }
+
+    .comparison {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 12px 34px rgba(23,32,51,.06);
+    }
+    .row { display: grid; grid-template-columns: 1.1fr .9fr .9fr; border-bottom: 1px solid var(--border); }
+    .row:last-child { border-bottom: 0; }
+    .cell { padding: 18px; }
+    .head { background: #0f172a; color: #fff; font-weight: 900; }
+    .yes { color: var(--success); font-weight: 900; }
+    .muted { color: var(--muted); }
+
+    .cta-band {
+      background: linear-gradient(135deg, #07152f, #0b57d0);
+      color: #fff;
+      border-radius: 34px;
+      padding: clamp(28px, 6vw, 54px);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+    .cta-band h2 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 48px); line-height: 1.05; letter-spacing: -0.05em; }
+    .cta-band p { margin: 0; color: #cbd5e1; font-size: 17px; }
+    .cta-band .btn { background: var(--accent); color: #111827; box-shadow: 0 14px 30px rgba(255,176,0,.25); }
+    .cta-band .btn:hover { background: #ffc247; }
+
+    .faq { display: grid; gap: 14px; max-width: 850px; margin: 0 auto; }
+    details {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px 20px;
+    }
+    summary { cursor: pointer; font-weight: 900; font-size: 17px; }
+    details p { color: var(--muted); margin: 12px 0 0; }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 38px 0;
+      font-size: 14px;
+    }
+    footer a { color: #fff; font-weight: 700; }
+    .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; }
+    .disclaimer {
+      border-top: 1px solid rgba(255,255,255,.12);
+      margin-top: 24px;
+      padding-top: 18px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+
+    .mobile-cta {
+      display: none;
+      position: fixed;
+      bottom: 14px;
+      left: 14px;
+      right: 14px;
+      z-index: 50;
+    }
+    .mobile-cta .btn { width: 100%; padding: 16px 20px; }
+
+    @media (max-width: 900px) {
+      .hero-grid, .article, .cta-band, .footer-grid { grid-template-columns: 1fr; }
+      .hero { padding-top: 42px; }
+      .hero-card { transform: none; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .sidebar { position: static; }
+      .row { grid-template-columns: 1fr; }
+      .head .cell:not(:first-child) { display: none; }
+      .mobile-cta { display: block; }
+      body { padding-bottom: 76px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Replace this value only if your affiliate URL changes -->
+  <script>
+    const AFFILIATE_LINK = "https://www.dpbolvw.net/click-101751124-12843040";
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('[data-affiliate]').forEach(link => {
+        link.href = AFFILIATE_LINK;
+        link.rel = 'sponsored nofollow noopener';
+        link.target = '_blank';
+      });
+    });
+  </script>
+
+  <div class="topbar">
+    Advertiser disclosure: This page may earn a commission when you click through and book. <strong>No extra cost to you.</strong>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#top" aria-label="Travel Deal Finder home">
+        <span class="logo-mark">CT</span>
+        <span>Travel Deal Finder</span>
+      </a>
+      <nav class="nav-links" aria-label="Page navigation">
+        <a href="#why">Why CheapTickets</a>
+        <a href="#how">How It Works</a>
+        <a href="#deals">Trip Ideas</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Search Travel Deals</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">✈️ Travel smarter without overpaying</div>
+          <h1>Compare affordable flights, hotels & vacation packages in one place.</h1>
+          <p>Planning a trip does not need to feel complicated. CheapTickets helps travelers compare travel options, explore flexible dates, and find budget-friendly ways to get away.</p>
+          <div class="hero-actions">
+            <a class="btn" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Start Your Travel Search</a>
+            <a class="btn secondary" href="#how">See How It Works</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-pill">Flights</span>
+            <span class="trust-pill">Hotels</span>
+            <span class="trust-pill">Packages</span>
+            <span class="trust-pill">Cars</span>
+            <span class="trust-pill">Cruises</span>
+          </div>
+        </div>
+
+        <div class="hero-card" aria-label="Travel savings card">
+          <div class="deal-box">
+            <div class="deal-label">Featured travel search</div>
+            <div class="deal-title">Your next trip could cost less than you think.</div>
+            <ul class="deal-list">
+              <li><span class="check">✓</span><span>Compare travel options before you book.</span></li>
+              <li><span class="check">✓</span><span>Bundle flights and hotels when package savings are available.</span></li>
+              <li><span class="check">✓</span><span>Explore multiple destinations, dates, and travel styles.</span></li>
+              <li><span class="check">✓</span><span>Book directly through the CheapTickets travel marketplace.</span></li>
+            </ul>
+            <div class="search-card">
+              <div class="fake-input">From: Your City</div>
+              <div class="fake-input">To: Beach, city, family trip, or weekend getaway</div>
+              <a class="btn" style="width:100%; background:#ffb000; color:#111827; box-shadow:none;" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Find Deals Now →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container">
+        <div class="section-title">
+          <h2>Why travelers use CheapTickets before they book</h2>
+          <p>When prices change fast, comparison matters. CheapTickets gives travelers a simple starting point for finding affordable options across popular trip categories.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <div class="icon">🔎</div>
+            <h3>Compare before you commit</h3>
+            <p>Search flights, stays, rental cars, cruises, and vacation packages so you can review options before booking.</p>
+          </div>
+          <div class="card">
+            <div class="icon">💸</div>
+            <h3>Look for package value</h3>
+            <p>Bundling travel can sometimes unlock better overall value versus booking each part separately.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🌎</div>
+            <h3>Plan almost any trip type</h3>
+            <p>Weekend getaways, family vacations, last-minute travel, beach escapes, business trips, and more.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="advertorial" id="how">
+      <div class="container article">
+        <article class="article-main">
+          <div class="article-label">Advertorial guide</div>
+          <h2>The simple travel-booking habit that can help you avoid overpaying</h2>
+          <p>Many travelers start with one airline, one hotel site, or one app. The problem is that travel pricing can move quickly based on destination, dates, demand, routes, and availability. That is why a comparison-first approach can be a better way to plan.</p>
+          <p>CheapTickets gives travelers a convenient way to explore multiple travel categories from one place. Whether you are booking a flight, hotel, rental car, cruise, or vacation package, starting with a broad search can help you understand what is available before you make a decision.</p>
+
+          <div class="highlight">
+            <strong>Smart traveler tip:</strong> Search flexible dates, compare nearby airports when possible, and check package pricing before booking flight and hotel separately.
+          </div>
+
+          <div class="numbered">
+            <div class="step">
+              <div class="num">1</div>
+              <div>
+                <h3>Start with your destination and dates</h3>
+                <p>Enter where you want to go, where you are leaving from, and your travel window.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">2</div>
+              <div>
+                <h3>Compare travel options</h3>
+                <p>Review available flights, hotels, packages, rental cars, and other trip options.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">3</div>
+              <div>
+                <h3>Choose what fits your budget</h3>
+                <p>Look at price, location, timing, amenities, cancellation terms, and total trip value.</p>
+              </div>
+            </div>
+            <div class="step">
+              <div class="num">4</div>
+              <div>
+                <h3>Book when the deal feels right</h3>
+                <p>Travel prices can change, so compare options and book directly when you find the right fit.</p>
+              </div>
+            </div>
+          </div>
+
+          <p>If you have been putting off a trip because prices looked too high, a quick comparison search may help you find alternative dates, routes, stays, or package combinations that better match your budget.</p>
+          <p><a class="btn" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Compare CheapTickets Deals</a></p>
+        </article>
+
+        <aside class="sidebar">
+          <div class="sidebar-box">
+            <h3>Ready to compare?</h3>
+            <p>Search current travel options through CheapTickets and see what works for your next trip.</p>
+            <a class="btn" style="width:100%; background:#ffb000; color:#111827; box-shadow:none;" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Search Now</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="deals" class="destinations">
+      <div class="container">
+        <div class="section-title">
+          <h2>Popular trip ideas to search today</h2>
+          <p>Use CheapTickets to explore travel options for the trips people book most often.</p>
+        </div>
+        <div class="grid-3">
+          <div class="destination-card d1">
+            <h3>Weekend city breaks</h3>
+            <p>Quick flights, central hotels, and short-stay packages.</p>
+            <a class="mini-link" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Explore city trips →</a>
+          </div>
+          <div class="destination-card d2">
+            <h3>Beach vacations</h3>
+            <p>Compare warm-weather destinations, resorts, flights, and rental cars.</p>
+            <a class="mini-link" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Search beach deals →</a>
+          </div>
+          <div class="destination-card d3">
+            <h3>Family travel</h3>
+            <p>Look for convenient stays, flexible routes, and package options.</p>
+            <a class="mini-link" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Plan family travel →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <h2>Comparison-first booking can make travel planning easier</h2>
+          <p>Instead of checking one option at a time, start with a broader travel search.</p>
+        </div>
+        <div class="comparison" role="table" aria-label="Travel planning comparison">
+          <div class="row head" role="row">
+            <div class="cell" role="columnheader">Planning step</div>
+            <div class="cell" role="columnheader">One-site guessing</div>
+            <div class="cell" role="columnheader">Comparison search</div>
+          </div>
+          <div class="row" role="row">
+            <div class="cell"><strong>Flights</strong></div>
+            <div class="cell muted">Limited route visibility</div>
+            <div class="cell yes">Compare more options</div>
+          </div>
+          <div class="row" role="row">
+            <div class="cell"><strong>Hotels</strong></div>
+            <div class="cell muted">May miss better locations</div>
+            <div class="cell yes">Review price, area, and amenities</div>
+          </div>
+          <div class="row" role="row">
+            <div class="cell"><strong>Packages</strong></div>
+            <div class="cell muted">Often overlooked</div>
+            <div class="cell yes">Check flight + hotel bundle value</div>
+          </div>
+          <div class="row" role="row">
+            <div class="cell"><strong>Decision speed</strong></div>
+            <div class="cell muted">Multiple tabs and repeated searches</div>
+            <div class="cell yes">Simpler starting point</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta-band">
+          <div>
+            <h2>Search your next trip before prices change.</h2>
+            <p>Compare flights, hotels, cars, cruises, and vacation packages through CheapTickets today.</p>
+          </div>
+          <a class="btn" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Go to CheapTickets</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title">
+          <h2>Frequently asked questions</h2>
+          <p>Helpful answers before you start your travel search.</p>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Is this the official CheapTickets website?</summary>
+            <p>This is an independent promotional advertorial page. When you click a booking link, you will be taken to CheapTickets through an affiliate tracking link.</p>
+          </details>
+          <details>
+            <summary>Does clicking the link cost extra?</summary>
+            <p>No. This page may earn a commission if you click through and make a qualifying booking, but that does not add an extra charge from this page.</p>
+          </details>
+          <details>
+            <summary>What can I search for?</summary>
+            <p>You can use CheapTickets to search common travel categories such as flights, hotels, rental cars, cruises, and vacation packages.</p>
+          </details>
+          <details>
+            <summary>Are prices guaranteed?</summary>
+            <p>Travel prices, availability, rules, and fees can change at any time. Always review the final price, terms, cancellation policy, baggage fees, and booking details before purchasing.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="mobile-cta">
+    <a class="btn" data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Search CheapTickets Deals</a>
+  </div>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <div class="logo" style="color:#fff; margin-bottom:10px;"><span class="logo-mark">CT</span><span>Travel Deal Finder</span></div>
+        <p>Helping travelers compare affordable travel options before they book.</p>
+      </div>
+      <div>
+        <a data-affiliate href="https://www.dpbolvw.net/click-101751124-12843040">Visit CheapTickets</a>
+      </div>
+    </div>
+    <div class="container disclaimer">
+      <p><strong>Affiliate disclosure:</strong> This website contains affiliate links. If you click a link and complete a qualifying booking, the publisher may receive compensation. This page is independently created and is not the official CheapTickets website.</p>
+      <p><strong>Travel disclaimer:</strong> Prices, discounts, fees, availability, routes, hotel details, cancellation policies, baggage fees, and package terms are controlled by the booking provider and travel suppliers and may change without notice. Always verify all booking details before purchase.</p>
+      <p>CheapTickets and related brand names are trademarks of their respective owners. Use of names is for descriptive purposes only and does not imply endorsement.</p>
+    </div>
+  </footer>
+</body>
+</html>
